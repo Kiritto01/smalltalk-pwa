@@ -2,8 +2,10 @@ $font:'Lato', sans-serif;
 $white:#E5E5E5;
 $purpel:#8C00FF;
 $black: #000000;
+$red: #FC7171;
 *{
   background-color: $white;
+  color: $black;
 }
 :root {
   --res-size: calc(10px + 2vmin);
@@ -33,22 +35,24 @@ $black: #000000;
 
 .App-header {
   display: flex;
-  background-color: #282c34;
+  background-color: $white;
   align-items: center;
   justify-content:space-around;
-  max-width: 104vmin;
+  min-width: 100vmin;
   flex-direction: row;
   font-size: calc(10px + 2vmin);
   color: $white;
+  img{
+    background-color: $white;
+  }
 }
 .nav-item {
   color: $white;
   text-decoration: none;
-  background-color: #282c34;
 }
 .logo {
+  background-color: none;
   text-align: end;
-  background-color: #282c34;
 }
 .App-link {
   background-color: #282c34;
@@ -82,11 +86,6 @@ $black: #000000;
 }
 
 /* messages and chat */
-.Chat {
-  display: flex;
-  flex-direction: column; 
-  height: 70vh;
-}
 .message-body {
   display: flex;
 }
@@ -114,6 +113,46 @@ $black: #000000;
     width: 100vw;
   }
 }
+//Bottom navabar
+.burger{
+  display: none;
+}
+input:checked + .Bottom-header{
+    margin-bottom: 0;
+    transition: .7s;
+    .image{
+      transform: rotate(-360deg);
+      transition: .5s;
+    }
+}
+.Bottom-header{
+  z-index: 99;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  width: 100vw;
+  height:30%;
+  box-shadow: 0px -1px 11px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 54px 54px 0 0;
+  background-color: $white;
+  margin-bottom: -24vh;
+  transition: 0.7s;
+  .nav-item{
+    background-color: $white;
+    color: $black;
+    font-weight: bold;
+  }
+  img{
+    margin-bottom: 5vw;
+    transition: .5s;
+    transform: rotate(180deg);
+  }
+  input{
+    display: none;
+  }
+}
+
 /* login */
 .Login{
   color: $black;
@@ -137,7 +176,6 @@ $black: #000000;
     font-family: $font;
     width: 94px;
     height: 29px;
-    top: 435px;
     background: $purpel;
     box-shadow: 5px 4px 10px -3px rgba(0, 0, 0, 0.25);
     border-radius: 14.5px;
@@ -151,9 +189,12 @@ $black: #000000;
     margin-right: -5vw;
     border-radius: 20px;
     button{
-      margin-top: 8vw;
-      margin-left: 44vw;
+      margin-top: 10vw;
     }
+  }
+  .bttn{
+    display: flex;
+    justify-content: flex-end;
   }
   .loginInput{
     box-shadow: 5px 4px 10px -3px rgba(0, 0, 0, 0.25);
@@ -167,6 +208,7 @@ $black: #000000;
   .passwordInput{
     box-shadow: 5px 4px 10px -3px rgba(0, 0, 0, 0.25);
     border-radius: 2px;
+    margin-bottom: 10px;
     img{
       margin-top: 2vw;
       margin-left: 4vw;
@@ -203,6 +245,7 @@ $black: #000000;
     }
     .pass2{
       margin-top: 25px;
+      margin-bottom: 10px;
     }
     .hh1{
       margin-top: 14vw;
@@ -226,5 +269,237 @@ $black: #000000;
         height: 10vw;
       }
     }
+  }
+}
+
+// QRCode scanner
+.name{
+  width: 50vw;
+}
+.Scanner{
+  width: 100vw;
+  height: 74vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  .codeInput{
+    width: 200px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    input{
+      margin-left: 60px;
+      margin-right: 28px;
+      width: 70px;
+      height: 40px;
+      border: none;
+    }
+    img{
+      padding: 3px 6px;
+      width: 23px;
+      height: 38px;
+      margin-bottom: -15px;
+      transform: rotate(180deg);
+      box-shadow: -1px 0px 5px -1px rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+    }
+    button{
+      box-shadow: none;
+      border-radius: 20px;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .chatt{
+    width: 280px;
+    height: 73px;
+    font-size: 36px;
+    font-weight: 900;
+    background-color: $purpel;
+    color: $white;
+    font-family: $font;
+    border: none;
+    border-radius: 36.5px;
+    margin-top: 112px;
+  }
+}
+//Chat
+.Chat{
+  display: flex;
+  flex-direction: column;
+  .reavel{
+    display: flex;
+    width: 100vw;
+    height: 85px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+    button{
+      font-size: 24px;
+      width: 210px;
+      height: 32px;
+      color: $white;
+      background-color: $red;
+      font-family: $font;
+      font-weight: bold;
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+  .input-chat{
+    display: flex;
+    width: 100vw;
+    height: 100px;
+    position: fixed;
+    justify-content:space-around;
+    align-items: center;
+    bottom: 0px;
+    box-shadow: 0px -1px 8px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 46px 46px 0 0;
+    background-color: $purpel;
+    .sendddeer{
+      border-radius: 46px 46px 0 0;
+      background-color: $purpel;
+      height: 45px;
+    }
+  }
+  .send{
+    align-items: center;
+    display: flex;
+    width: 280px;
+    height: 40px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    input{
+      border-radius: 15px;
+      font-family: $font;
+      border: none;
+      margin-right: 28vw;
+      padding-left: 10px;
+    }
+    button{
+      box-shadow: none;
+      background-color: $white;
+      border-radius: 15px;
+      border: none;
+    }
+  }
+}
+
+//Circles
+.Circles{
+  width: 100vw;
+  font-family: $font;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  position: relative;
+  img{
+    position: relative;
+    width: 300px;
+    filter: drop-shadow(0px 1.14844px 4.59375px rgba(0, 0, 0, 0.25));
+    border-radius: 11.4844px;
+  }
+  span{
+    margin-top: 35vw;
+    width: 72.6vw;
+    padding-top: 1vw;
+    padding-bottom: .5vw;
+    border-radius: 0 0 11.4844px 11.4844px;
+    justify-content: center;
+    align-items: flex-end;
+    display: flex;
+    position: absolute;
+    background: none;
+    color: $black;
+    background: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+    z-index: 5;
+  }
+  .name{
+    position: absolute;
+  }
+  button{
+    border: none;
+  }
+}
+
+//PopUp
+.popUp{
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0, 0.3);
+  .window{
+    display: flex;
+    background-color: rgba(0,0,0, 0.0);
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .contentt{
+      padding: 100px 60px;
+      background-color: $white;
+      box-shadow: 0px -1px 11px 2px rgba(0, 0, 0, 1);
+      border-radius: 54px;
+    }
+  }
+}
+
+// Create Circle
+.Cricles{
+  height: 150vw;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  input{
+    text-align: center;
+    font-family: $font;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0px 0px 4.80357px rgba(0, 0, 0, 0.25);
+    border-radius: 18.0134px;
+    width: 269px;
+    height: 36.03px;
+  }
+  .desciption{
+    text-align:center;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+    width: 269px;
+    height: 153.71px;
+  }
+  .time{
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 18vw;
+    input{
+      width: 120px;
+      height: 36.03px;
+    }
+  }
+  button{
+    padding: 10px 35px;
+    font-size: 20px;
+    width: 148,26px;
+    height: 38,57px;
+    color: $white;
+    background-color: $purpel;
+    font-family: $font;
+    font-weight: bold;
+    border: none;
+    border-radius: 43.9955px;
   }
 }

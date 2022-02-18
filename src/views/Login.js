@@ -1,5 +1,6 @@
 import { React, useState, useContext, useEffect } from 'react';
 import { UserContext } from '../services/UserContext';
+import TopBar from './TopBar';
 import userLogo from './loginIcon/user.svg';
 import passwordLogo from './loginIcon/Group 2.svg';
 import arrowLogo from './loginIcon/Arrow 2.svg';
@@ -90,7 +91,9 @@ const Login = ({info}) => {
           <input type="password" placeholder='Hasło' onChange={(e) => setPassword(e.target.value)}></input>
           <img src={passwordLogo} alt="" />
         </div>
-        <button onClick={() => login()}>Zaloguj ➜</button>
+        <div className='bttn'>
+          <button onClick={() => login()}>Zaloguj ➜</button>
+        </div>
       </div>
       <div className="footer">
         <p>Nie masz konta?</p>
@@ -117,14 +120,20 @@ const Login = ({info}) => {
           <input type="password" placeholder='Powtórz Hasło' onChange={(e) => setConfirmPassword(e.target.value)}></input>
           <img src={passwordLogo} alt="" />
         </div>
-        <button onClick={() => register()}>Utwórz ➜</button>
+        <div className='bttn'>
+          <button onClick={() => register()}>Utwórz ➜</button>
+        </div>
       </div>
       <div className="footer">
         <p>Masz już konto?</p>
       <button className="option-button" onClick={() => setFormType('login')}>Zaloguj się</button>
     </div>
-    </div> ): 
-    <button onClick={() => logout()}>Wyloguj</button>}
+    </div> ):
+    <div>
+      <TopBar/>
+      <button onClick={() => logout()}>Wyloguj</button>
+    </div>
+}
   </div>;
 };
 

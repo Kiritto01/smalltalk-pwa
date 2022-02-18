@@ -1,6 +1,10 @@
 import {React, useState, useEffect, useContext} from 'react';
 import { w3cwebsocket as W3CWebSocket } from 'websocket';
 import { UserContext } from '../services/UserContext';
+import iceLogo from './loginIcon/Ice.svg';
+import sendLogo from './loginIcon/sendArrow.svg';
+import XLogo from './loginIcon/X.svg';
+
 const Chat = () => {
 
   const [message, setMessage] = useState('');
@@ -87,6 +91,9 @@ const Chat = () => {
 
   return (
       <div className="Chat">
+        <div className='reavel'>
+          <button>ODKRYJ</button>
+        </div>
         {/* {messagesArray.map(message => {
             <span>{message.message}: </span>
         })} */}
@@ -102,9 +109,13 @@ const Chat = () => {
             </div>
           </div>})
         }</div>
-        <div className="input-section">
-          <input type="text" onChange={e => setMessage(e.target.value)}></input>
-          <button onClick={e => sendMessage(e,message)}>send</button>
+        <div className="input-chat">
+          <img className='sendddeer' src={XLogo} alt="" />
+          <div className='send'>
+            <input placeholder='Napisz coś...' type="text" onChange={e => setMessage(e.target.value)}></input>
+            <button onClick={e => sendMessage(e,message)}> <img src={sendLogo} alt="" /> </button>
+          </div>
+          <img className='sendddeer' src={iceLogo} alt="" />
         </div>
       </div>)
 };
