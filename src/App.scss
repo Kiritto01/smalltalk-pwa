@@ -42,8 +42,9 @@ $red: #FC7171;
   flex-direction: row;
   font-size: calc(10px + 2vmin);
   color: $white;
-  img{
-    background-color: $white;
+  .homeLogo{
+    box-shadow: none;
+    background-color: #E5E5E5;
   }
 }
 .nav-item {
@@ -359,7 +360,7 @@ input:checked + .Bottom-header{
     align-items: center;
     bottom: 0px;
     box-shadow: 0px -1px 8px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 46px 46px 0 0;
+    border-radius: 20px 20px 0 0;
     background-color: $purpel;
     .sendddeer{
       border-radius: 46px 46px 0 0;
@@ -377,6 +378,7 @@ input:checked + .Bottom-header{
     input{
       border-radius: 15px;
       font-family: $font;
+      font-weight: 900;
       border: none;
       margin-right: 28vw;
       padding-left: 10px;
@@ -386,6 +388,29 @@ input:checked + .Bottom-header{
       background-color: $white;
       border-radius: 15px;
       border: none;
+    }
+  }
+}
+//PopUp
+.popUp{
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0, 0.3);
+  .window{
+    display: flex;
+    background-color: rgba(0,0,0, 0.0);
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .contentt{
+      box-shadow: 0px -1px 11px 2px rgba(0, 0, 0, 1);
+      border-radius: 54px;
     }
   }
 }
@@ -405,16 +430,13 @@ input:checked + .Bottom-header{
     border-radius: 11.4844px;
   }
   span{
-    margin-top: 35vw;
-    width: 72.6vw;
-    padding-top: 1vw;
-    padding-bottom: .5vw;
+    display: flex;
+    margin-top: 15vh;
+    width: 300px;
+    padding-bottom: 4%;
     border-radius: 0 0 11.4844px 11.4844px;
     justify-content: center;
-    align-items: flex-end;
-    display: flex;
     position: absolute;
-    background: none;
     color: $black;
     background: rgba(255, 255, 255, 0.5);
     font-weight: bold;
@@ -427,30 +449,78 @@ input:checked + .Bottom-header{
     border: none;
   }
 }
-
-//PopUp
-.popUp{
-  z-index: 100;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0, 0.3);
-  .window{
+.inf{
+  padding: 0px 30px;
+  .bc{
+    display: none;
+  }
+  .des{
     display: flex;
-    background-color: rgba(0,0,0, 0.0);
+    margin-left: 15%;
+    width: 70%;
+  }
+  .insta{
+    display: none;
+  }
+  .fb{
+    display: none;
+  }
+}
+.profile{
+  padding: 0px 0 100px 0;
+  .user{
+    margin-top: 10vw;
+  }
+  .bc{
+    box-shadow: 0px -1px 11px 2px rgba(0, 0, 0, 1);
+    border-radius: 54px 54px 0 0 ;
+    width: 80vw;
+    height: 30vw;
+    background-color: $purpel;
+    display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100%;
-    .contentt{
-      padding: 100px 60px;
-      background-color: $white;
-      box-shadow: 0px -1px 11px 2px rgba(0, 0, 0, 1);
-      border-radius: 54px;
+  }
+  .avatar{
+    border-radius: 52px;
+    display: flex;
+    margin-top: 18vw;
+    justify-content: center;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+  }
+  .fb{
+    margin-top: 20vw;
+    margin-left: 2vw;
+    width: 50vw;
+    display: flex;
+    img{
+      margin-right: 1vw;
     }
+  }
+  .insta{
+    margin-left: 2vw;
+    display: flex;
+    img{
+      margin-right: 1vw;
+    }
+  }
+
+}
+.chatPopUp{
+  width: 59%;
+  padding: 30px 30px ;
+  img{
+    margin-top: 5vw;
+  }
+  .better{
+    margin-left: 15vw;
+  }
+  .bc{
+    display: none;
+  }
+  .fb{
+    display: none;
   }
 }
 
@@ -478,6 +548,7 @@ input:checked + .Bottom-header{
     margin-bottom: 10vw;
     width: 269px;
     height: 153.71px;
+    font-size:18px;
   }
   .time{
     width: 70vw;

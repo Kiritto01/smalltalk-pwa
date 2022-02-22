@@ -1,12 +1,15 @@
 import {React, useState, useEffect, useContext} from 'react';
 import { w3cwebsocket as W3CWebSocket } from 'websocket';
 import { UserContext } from '../services/UserContext';
+import PopUp from './PopUp';
 import iceLogo from './loginIcon/Ice.svg';
 import sendLogo from './loginIcon/sendArrow.svg';
 import XLogo from './loginIcon/X.svg';
+import X2Logo from './loginIcon/X 2.svg';
+import checkLogo from './loginIcon/check.svg';
 
 const Chat = () => {
-
+  const [show, setShow] = useState(false);
   const [message, setMessage] = useState('');
   const [count,setCount] = useState(0);
   // const [username, setUsername] = useState('asdf');
@@ -90,7 +93,7 @@ const Chat = () => {
   }, [moreInfoTrigger])
 
   return (
-      <div className="Chat">
+      <div className="Chat"  onClick={(e) => {e.target.id === 'nieodda' && setShow(false)}}>
         <div className='reavel'>
           <button>ODKRYJ</button>
         </div>
@@ -110,13 +113,14 @@ const Chat = () => {
           </div>})
         }</div>
         <div className="input-chat">
-          <img className='sendddeer' src={XLogo} alt="" />
+          <img className='sendddeer' src={XLogo} alt="" onClick={() => setShow(true)} />
           <div className='send'>
             <input placeholder='Napisz coś...' type="text" onChange={e => setMessage(e.target.value)}></input>
-            <button onClick={e => sendMessage(e,message)}> <img src={sendLogo} alt="" /> </button>
+            <button onClick={e => sendMessage(e,message)}> <img src={sendLogo} alt="" onClick={() => setShow(true)} /> </button>
           </div>
           <img className='sendddeer' src={iceLogo} alt="" />
         </div>
+        {show && <PopUp show={show} setShow={setShow} head={"Czy na pewno chcesz porzucić tę konwersację?"} clas={'chatPopUp contentt'} imagine={X2Logo} imagine2={checkLogo}/>}
       </div>)
 };
 
