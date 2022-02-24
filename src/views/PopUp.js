@@ -18,6 +18,7 @@ const PopUp = (props) => {
     const imagine2 = props.imagine2;
     const imagine3 = props.imagine3;
     const imagine4 = props.imagine4;
+    const bttn = props.bttn;
     return <div>
     <div className='popUp'>
         <div className='window' id="nieodda">
@@ -40,6 +41,9 @@ const PopUp = (props) => {
                         <p>{instaInfo}</p>
                         <img src={imagine} alt=""/>
                         <img src={imagine2} alt=""  className='better'/>
+                    </div>
+                    <div className='logOut'>
+                        <button>{bttn}</button>
                     </div>
                     <p>{expiresInfo}</p>
             </div>

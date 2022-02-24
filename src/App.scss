@@ -1,18 +1,31 @@
 $font:'Lato', sans-serif;
-$white:#E5E5E5;
+$grey:#E5E5E5;
+$white:#FFFFFF;
 $purpel:#8C00FF;
 $black: #000000;
 $red: #FC7171;
 *{
   background-color: $white;
   color: $black;
+  input:focus{
+    outline: none;
+    text-decoration: none;
+    .Bottom-header{
+      background-color: #000000;
+    }
+  }
+  button:focus{
+    outline: none;
+  }
+  textarea:focus{
+    outline: none;
+  }
 }
 :root {
   --res-size: calc(10px + 2vmin);
   --small-res-size: calc(var(--res-size) * 0.5);
   --big-res-size: calc(var(--res-size) * 1.5);
 }
-
 .App {
   text-align: center;
   background-color: $white;
@@ -44,7 +57,6 @@ $red: #FC7171;
   color: $white;
   .homeLogo{
     box-shadow: none;
-    background-color: #E5E5E5;
   }
 }
 .nav-item {
@@ -119,7 +131,7 @@ $red: #FC7171;
   display: none;
 }
 input:checked + .Bottom-header{
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
     transition: .7s;
     .image{
       transform: rotate(-360deg);
@@ -127,17 +139,17 @@ input:checked + .Bottom-header{
     }
 }
 .Bottom-header{
-  z-index: 99;
+  z-index: 9;
   position: fixed;
   display: flex;
   flex-direction: column;
-  bottom: 0;
+  bottom: 0 !important; 
   width: 100vw;
-  height:30%;
+  height: 56vw;
   box-shadow: 0px -1px 11px 2px rgba(0, 0, 0, 0.25);
   border-radius: 54px 54px 0 0;
   background-color: $white;
-  margin-bottom: -24vh;
+  margin-bottom: -45vw;
   transition: 0.7s;
   .nav-item{
     background-color: $white;
@@ -164,6 +176,7 @@ input:checked + .Bottom-header{
     margin-top: 20vw;
   }
   input{
+    font-family: $font;
     display: inline-flex;
     width: 80%;
     height: 31px;
@@ -179,16 +192,21 @@ input:checked + .Bottom-header{
     height: 29px;
     background: $purpel;
     box-shadow: 5px 4px 10px -3px rgba(0, 0, 0, 0.25);
-    border-radius: 14.5px;
+    border-radius: 20px;
   }
   img{
     float: left;
   }
   .inputLogin{
+    display: flex;
+    flex-direction: column;
     margin-top: 22vw;
-    margin-left: 15vw;
+    margin-left: 8vw;
     margin-right: -5vw;
     border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.30);
+    width: 84vw;
+    height: 278px;
     button{
       margin-top: 10vw;
     }
@@ -196,11 +214,20 @@ input:checked + .Bottom-header{
   .bttn{
     display: flex;
     justify-content: flex-end;
+    width: 90%;
+    button{
+      font-size: 15px;
+      height: 9vw;
+      width: 25vw;
+    }
   }
   .loginInput{
     box-shadow: 5px 4px 10px -3px rgba(0, 0, 0, 0.25);
     border-radius: 2px;
     margin-bottom: 25px;
+    margin-top: 55px;
+    margin-left: 25px;
+    width: 80%;
     img{
       margin-top: 2vw;
       margin-left: 4vw;
@@ -210,6 +237,8 @@ input:checked + .Bottom-header{
     box-shadow: 5px 4px 10px -3px rgba(0, 0, 0, 0.25);
     border-radius: 2px;
     margin-bottom: 10px;
+    margin-left: 25px;
+    width: 80%;
     img{
       margin-top: 2vw;
       margin-left: 4vw;
@@ -229,7 +258,7 @@ input:checked + .Bottom-header{
     .option-button{
       align-self: center;
       z-index: 1;
-      width: 34%;
+      width: 30%;
       color: $purpel;
       background-color: $white;
       box-shadow: none;
@@ -278,6 +307,7 @@ input:checked + .Bottom-header{
   width: 50vw;
 }
 .Scanner{
+  position: relative;
   width: 100vw;
   height: 74vh;
   display: flex;
@@ -288,9 +318,15 @@ input:checked + .Bottom-header{
   .codeInput{
     width: 200px;
     border-radius: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: 60px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     input{
+      z-index: 1;
+      font-family: $font;
+      font-weight: 700;
+      font-size: 14px;
       margin-left: 60px;
       margin-right: 28px;
       width: 70px;
@@ -303,12 +339,10 @@ input:checked + .Bottom-header{
       height: 38px;
       margin-bottom: -15px;
       transform: rotate(180deg);
-      box-shadow: -1px 0px 5px -1px rgba(0, 0, 0, 0.25);
-      border-radius: 20px;
+      border-radius: 16px;
     }
     button{
-      box-shadow: none;
-      border-radius: 20px;
+      border-radius: 16px;
       border: none;
       padding: 0;
       margin: 0;
@@ -324,7 +358,17 @@ input:checked + .Bottom-header{
     font-family: $font;
     border: none;
     border-radius: 36.5px;
-    margin-top: 112px;
+    margin-top: 16vw;
+  }
+  .qr{
+    height: 160px;
+  }
+  .border{
+    mix-blend-mode: normal;
+    width: 320px;
+    height: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.30);
+    border-radius: 20px;
   }
 }
 //Chat
@@ -332,6 +376,7 @@ input:checked + .Bottom-header{
   display: flex;
   flex-direction: column;
   .reavel{
+    position: fixed;
     display: flex;
     width: 100vw;
     height: 85px;
@@ -354,7 +399,7 @@ input:checked + .Bottom-header{
   .input-chat{
     display: flex;
     width: 100vw;
-    height: 100px;
+    height: 58px;
     position: fixed;
     justify-content:space-around;
     align-items: center;
@@ -362,10 +407,17 @@ input:checked + .Bottom-header{
     box-shadow: 0px -1px 8px 5px rgba(0, 0, 0, 0.25);
     border-radius: 20px 20px 0 0;
     background-color: $purpel;
-    .sendddeer{
+    .xLogo{
+      margin-left: 2px;
+      margin-right: -2px;
       border-radius: 46px 46px 0 0;
       background-color: $purpel;
-      height: 45px;
+      height: 35px;
+    }
+    .iceBraker{
+      margin-left: -2px;
+      margin-right: 2px;
+      background-color: $purpel;
     }
   }
   .send{
@@ -376,11 +428,11 @@ input:checked + .Bottom-header{
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     input{
+      width: 242px;
       border-radius: 15px;
       font-family: $font;
       font-weight: 900;
       border: none;
-      margin-right: 28vw;
       padding-left: 10px;
     }
     button{
@@ -396,7 +448,7 @@ input:checked + .Bottom-header{
   z-index: 100;
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
@@ -418,6 +470,7 @@ input:checked + .Bottom-header{
 //Circles
 .Circles{
   width: 100vw;
+  margin-bottom: 12vw;
   font-family: $font;
   display: flex;
   flex-direction: column;
@@ -429,28 +482,35 @@ input:checked + .Bottom-header{
     filter: drop-shadow(0px 1.14844px 4.59375px rgba(0, 0, 0, 0.25));
     border-radius: 11.4844px;
   }
-  span{
+  .spanName{
+    background-color: rgba(255,255,255,0.01);
     display: flex;
-    margin-top: 15vh;
+    height: 169px;
     width: 300px;
-    padding-bottom: 4%;
+    padding-bottom: 2.1%;
     border-radius: 0 0 11.4844px 11.4844px;
     justify-content: center;
+    align-items: flex-end;
     position: absolute;
     color: $black;
-    background: rgba(255, 255, 255, 0.5);
     font-weight: bold;
     z-index: 5;
-  }
-  .name{
-    position: absolute;
+    span{
+      font-size: 20px;
+      padding: 9px 0px;
+      border-radius: 0 0 11.4844px 11.4844px;
+      height: 12%;
+      width: 300px;
+      margin-top: 1.5vw;
+      background-color:rgba(255, 255, 255, 0.5);;
+    }
   }
   button{
     border: none;
   }
 }
 .inf{
-  padding: 0px 30px;
+  padding: 0px 3.8vw;
   .bc{
     display: none;
   }
@@ -465,16 +525,19 @@ input:checked + .Bottom-header{
   .fb{
     display: none;
   }
+  .logOut{
+    display: none;
+  }
 }
 .profile{
-  padding: 0px 0 100px 0;
+  padding: 0px 0 8px 0;
+  width: 70vw;
   .user{
     margin-top: 10vw;
   }
   .bc{
-    box-shadow: 0px -1px 11px 2px rgba(0, 0, 0, 1);
     border-radius: 54px 54px 0 0 ;
-    width: 80vw;
+    width: 70vw;
     height: 30vw;
     background-color: $purpel;
     display: flex;
@@ -483,29 +546,51 @@ input:checked + .Bottom-header{
   .avatar{
     border-radius: 52px;
     display: flex;
-    margin-top: 18vw;
+    margin-top: 16vw;
     justify-content: center;
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
   }
   .fb{
-    margin-top: 20vw;
-    margin-left: 2vw;
+    margin-top: 10vw;
+    margin-left: 8vw;
+    margin-bottom: -5vw;
     width: 50vw;
     display: flex;
     img{
-      margin-right: 1vw;
+      margin-right: 4vw;
+    }
+    p{
+      font-weight: 400;
     }
   }
   .insta{
-    margin-left: 2vw;
+    margin-left: 8vw;
     display: flex;
     img{
-      margin-right: 1vw;
+      margin-right: 4vw;
+    }
+    p{
+      font-weight: 400;
     }
   }
-
+  .logOut{
+    border-radius: 35px;
+    height: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    button{
+      font-family: $font;
+      width: 223px;
+      height: 22px;
+      font-size: 18px;
+      background-color: none;
+      border: none;
+      color: $red;
+    }
+  }
 }
 .chatPopUp{
   width: 59%;
@@ -522,6 +607,12 @@ input:checked + .Bottom-header{
   .fb{
     display: none;
   }
+  .logOut{
+    display: none;
+  }
+  .insta{
+    margin-top: -10vw;
+  }
 }
 
 // Create Circle
@@ -532,33 +623,47 @@ input:checked + .Bottom-header{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: -8vw;
   input{
     text-align: center;
     font-family: $font;
-    font-weight: 600;
+    font-weight: bold;
+    font-size: 12px;
     border: none;
-    box-shadow: 0px 0px 4.80357px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4.80357px rgba(0, 0, 0, 0.45);
     border-radius: 18.0134px;
     width: 269px;
     height: 36.03px;
   }
+  ::-webkit-input-placeholder {
+    text-align: center;
+ }
   .desciption{
-    text-align:center;
+    font-family: $font;
+    display: flex;
+    text-align: left;
+    align-items: flex-start;
     margin-top: 10vw;
     margin-bottom: 10vw;
     width: 269px;
     height: 153.71px;
-    font-size:18px;
+    font-size:14px;
+    font-weight: bold;
+    box-shadow: 0px 0px 4.80357px rgba(0, 0, 0, 0.45);
+    border-radius: 18.0134px;
+    border: none;
+    resize: none;
   }
   .time{
     width: 70vw;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-bottom: 18vw;
+    margin-bottom: 16vw;
     input{
       width: 120px;
       height: 36.03px;
+      font-size: 12px;
     }
   }
   button{
@@ -573,4 +678,55 @@ input:checked + .Bottom-header{
     border: none;
     border-radius: 43.9955px;
   }
+}
+//Searching
+.Searching{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img{
+    animation: spin 1s linear infinite;
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0, 0.4, 1);
+    animation-timing-function: cubic-bezier(0.3, 0, 0.4, 1);
+    margin-top: -10vw;
+    margin-bottom: 30vw;
+  }
+  h1{
+    font-size: 45px;
+    color: #656565;
+  }
+  .dot{
+    color: #656565;
+    display:inline-block;
+		width:6px;
+		height:5px;
+		border-radius:50%;
+		margin-right:3px;
+ }
+}
+
+
+@keyframes spin {
+  
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  
+}
+
+
+.blue{
+  background-color: blue;
+}
+.brown{
+  background-color: brown;
 }

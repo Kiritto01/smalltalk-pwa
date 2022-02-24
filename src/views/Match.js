@@ -12,11 +12,13 @@ const Match = () => {
   <div className="name">
       <TopBar/>
       <div className='Scanner'>
+        <div className='border'>
         <div className='codeInput'>
           <input type="number" placeholder='Wpisz kod'/>
           <button onClick={()=>console.log("Kutaz")}><img src={arrowLogo} alt="" /></button>
         </div>
-        <img src={qrLogo} alt="" /> {/* Przejście do aparatu */}
+        <img src={qrLogo} className='qr' /> {/* Przejście do aparatu */}
+        </div>
         <button className='chatt'>Chatuj</button>
       </div>
       <BottomBar/>

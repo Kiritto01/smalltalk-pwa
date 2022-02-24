@@ -14,6 +14,7 @@ import Circles from './views/Circles.js'
 import Match from './views/Match.js'
 import Friends from './views/Friends';
 import CreateCircle from './views/CreateCircle';
+import Searching from './views/Searching';
 import {request} from './services/client';
 import { render } from '@testing-library/react';
 
@@ -46,6 +47,7 @@ function App() {
                 <Route path="/circles" element={user ? <Circles/> : <Login info="Musisz się najpierw zalogować!"/>}/>
                 <Route path="/friends" element={user ? <Friends/> : <Login info="Musisz się najpierw zalogować!"/>}/>
                 <Route path="/createCircle" element={user ? <CreateCircle/> : <Login info="Musisz się najpierw zalogować!"/>}/>
+                <Route path="/searching" element={<Searching/>}/>
                 <Route path="/admin" element={<Admin/>}/>
                 <Route path="/login" element={<Login/>}/>
               </Routes>

@@ -9,6 +9,10 @@ import X2Logo from './loginIcon/X 2.svg';
 import checkLogo from './loginIcon/check.svg';
 
 const Chat = () => {
+  let indicator = 0;
+  let indiCator = 0;
+  let divIndi = 0;
+  const [classNamee, setClassName] = useState(strCompare()?"blue":"brown");
   const [show, setShow] = useState(false);
   const [message, setMessage] = useState('');
   const [count,setCount] = useState(0);
@@ -91,6 +95,18 @@ const Chat = () => {
   useEffect(() => {
     console.log(user);
   }, [moreInfoTrigger])
+  
+  function strCompare(str1,str2){
+    const userName = "Łona"
+    const coco = str1
+    if(coco !== userName){
+      return true
+    }
+    else{
+      return false
+    }
+}
+
 
   return (
       <div className="Chat"  onClick={(e) => {e.target.id === 'nieodda' && setShow(false)}}>
@@ -105,20 +121,20 @@ const Chat = () => {
             setMoreInfoTrigger(!moreInfoTrigger);
           }}>
             <div className="message-sender">
-              {mes?.username + ": "} 
+              {strCompare(messagesArray[indiCator++].username,messagesArray[indicator++].message)}
             </div>
-            <div className="message-content">
+            <div className="message-content" className={classNamee} id={divIndi++} >
               {mes?.message}
             </div>
           </div>})
         }</div>
         <div className="input-chat">
-          <img className='sendddeer' src={XLogo} alt="" onClick={() => setShow(true)} />
+          <img className='xLogo' src={XLogo} alt="" onClick={() => setShow(true)} />
           <div className='send'>
             <input placeholder='Napisz coś...' type="text" onChange={e => setMessage(e.target.value)}></input>
-            <button onClick={e => sendMessage(e,message)}> <img src={sendLogo} alt="" onClick={() => setShow(true)} /> </button>
+            <button onClick={e => sendMessage(e,message)}> <img src={sendLogo}/> </button>
           </div>
-          <img className='sendddeer' src={iceLogo} alt="" />
+          <img className='iceBraker' src={iceLogo} alt="" />
         </div>
         {show && <PopUp show={show} setShow={setShow} head={"Czy na pewno chcesz porzucić tę konwersację?"} clas={'chatPopUp contentt'} imagine={X2Logo} imagine2={checkLogo}/>}
       </div>)

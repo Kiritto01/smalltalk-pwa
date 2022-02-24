@@ -66,12 +66,11 @@ const Circles = () => {
         <div>
             <div className="container Circles" onClick={(e) => {e.target.id !== '-1' && setIDE(e.target.id)}}>
               {/* {console.log(circle)} */}
-              <button onClick={() => setShow(true)}>
-                <img src={circle.background_img} id={idetifire++}/>
-              </button>
-              <span className='name'>{circle.name}</span>
+                <img src={circle.background_img}/>
+              <div className='spanName' id={idetifire++} onClick={() => setShow(true)}>
+                <span className='name'>{circle.name}</span>
+              </div>
               {/* <span className='date'>{circle.expires}</span> */}
-              <br></br>
             </div>
         </div>
         )
