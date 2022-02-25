@@ -15,8 +15,7 @@ const CreateCircle = () => {
         <input type="text" placeholder='Nazwa' onFocus={(e)=>setShow(false)} />
         <textarea type="text" className='desciption' placeholder='Opis' maxLength='200' onClick={()=>setShow(false)}/>
         <div className='time'>
-        <input type="text" pattern="\d*" placeholder='Ilość użytkowników' maxLength='3' onClick={()=>setShow(false)}/>
-        <input type="text" maxLength="3" placeholder='Wygąsnie za' onClick={()=>setShow(false)}/>
+        <input type="text" pattern="\d*" placeholder='Ilość użytkowników' maxLength='3'onClick={()=>setShow(false)}/>
       </div>
         <button>STWÓRZ</button>
       </div>
