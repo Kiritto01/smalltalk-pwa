@@ -1,4 +1,5 @@
 import {React,useContext} from 'react';
+import {useNavigate} from "react-router-dom";
 import {authUserLogout} from '../services/api_methods';
 import { UserContext } from '../services/UserContext';
 
@@ -6,6 +7,7 @@ const PopUp = (props) => {
     const { user, setUser } = useContext(UserContext);
     const head = props.head;
     const head1 = props.head1;
+    const head2 = props.head2;
     const description = props.description;
     const users = props.users;
     const userInfo = props.userInfo;
@@ -26,6 +28,11 @@ const PopUp = (props) => {
           .then(user => setUser(user))
         console.log('logout');
     }
+    const navigate = useNavigate(); 
+    const chatExit = () => {
+    const path = `/chat`; 
+    navigate(path);
+  }
 
     return <div>
     <div className='popUp'>
@@ -33,6 +40,13 @@ const PopUp = (props) => {
             <div className={clas} id='odda'>
                     <div className='bc'>
                     <img src={avatar} className="avatar" />
+                    </div>
+                    <div className='chatBttns' id='odda'>
+                        <h1>{head2}</h1>
+                        <div className='bttnsColor'>
+                        <button id='ree' className='reaveael'>ODKRYJ</button>
+                        <button id='odda'>KONTYNUUJ</button>
+                        </div>
                     </div>
                     <h1 className='user' >{head1}</h1>
                     <h1>{head}</h1>
@@ -47,8 +61,8 @@ const PopUp = (props) => {
                     <div className='insta' >
                         <img src={imagine4} alt=""/>
                         <p>{instaInfo}</p>
-                        <img src={imagine} alt=""/>
-                        <img src={imagine2} alt=""  className='better'/>
+                        <img src={imagine} id="nieodda" alt=""/>
+                        <img onClick={()=>chatExit()} src={imagine2} alt=""  className='better'/>
                     </div>
                     <div className='logOut'>
                         <button onClick={()=> logout()} >{bttn}</button>

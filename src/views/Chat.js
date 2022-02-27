@@ -7,6 +7,9 @@ import sendLogo from './loginIcon/sendArrow.svg';
 import XLogo from './loginIcon/X.svg';
 import X2Logo from './loginIcon/X 2.svg';
 import checkLogo from './loginIcon/check.svg';
+import fbLogo from './loginIcon/fb.svg';
+import instLogo from './loginIcon/instagram.svg';
+import userLogo from './loginIcon/Avatar.svg';
 
 const Chat = () => {
   let indicator = 0;
@@ -14,6 +17,8 @@ const Chat = () => {
   let divIndi = 0;
   const [classNamee, setClassName] = useState(strCompare()?"blue":"brown");
   const [show, setShow] = useState(false);
+  const [show1, setShow1] = useState(false);
+  const [show3, setShow3] = useState(false);
   const [message, setMessage] = useState('');
   const [count,setCount] = useState(0);
   // const [username, setUsername] = useState('asdf');
@@ -109,9 +114,11 @@ const Chat = () => {
 
 
   return (
+    <div onClick={(e) => {e.target.id === 'ree'  && setShow3(true)}}>
+    <div onClick={(e) => {e.target.id === 'odda'  && setShow1(false)}}>
       <div className="Chat"  onClick={(e) => {e.target.id === 'nieodda'  && setShow(false)}}>
         <div className='reavel'>
-          <button>ODKRYJ</button>
+          <button onClick={() => setShow1(true)}>ODKRYJ</button>
         </div>
         {/* {messagesArray.map(message => {
             <span>{message.message}: </span>
@@ -137,6 +144,10 @@ const Chat = () => {
           <img className='iceBraker' src={iceLogo} alt="" />
         </div>
         {show && <PopUp show={show} setShow={setShow} head={"Czy na pewno chcesz porzucić tę konwersację?"} clas={'chatPopUp contentt'} imagine={X2Logo} imagine2={checkLogo}/>}
+        {show1 && <PopUp show={show1} setShow={setShow1} head2={"Druga osoba chcę cię poznać"} clas={'chatBttns'}/>}
+        {show3 && <PopUp show3={show3} setShow3={setShow3} avatar={userLogo} head1={"Szymon"} imagine3={fbLogo} imagine4={instLogo} instaInfo={"Szymon Kowal"} fbInfo={"Szymon Kowal"} clas={'profile contentt'}/>}
+      </div>
+      </div>
       </div>)
 };
 
