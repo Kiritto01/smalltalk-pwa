@@ -1,8 +1,9 @@
-import {React} from 'react';
-
-
+import {React,useContext} from 'react';
+import {authUserLogout} from '../services/api_methods';
+import { UserContext } from '../services/UserContext';
 
 const PopUp = (props) => {
+    const { user, setUser } = useContext(UserContext);
     const head = props.head;
     const head1 = props.head1;
     const description = props.description;
@@ -19,6 +20,13 @@ const PopUp = (props) => {
     const imagine3 = props.imagine3;
     const imagine4 = props.imagine4;
     const bttn = props.bttn;
+
+    const logout = () => {
+        authUserLogout()
+          .then(user => setUser(user))
+        console.log('logout');
+    }
+
     return <div>
     <div className='popUp'>
         <div className='window' id="nieodda">
@@ -43,7 +51,7 @@ const PopUp = (props) => {
                         <img src={imagine2} alt=""  className='better'/>
                     </div>
                     <div className='logOut'>
-                        <button>{bttn}</button>
+                        <button onClick={()=> logout()} >{bttn}</button>
                     </div>
                     <p>{expiresInfo}</p>
             </div>

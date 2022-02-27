@@ -109,7 +109,7 @@ const Chat = () => {
 
 
   return (
-      <div className="Chat"  onClick={(e) => {e.target.id === 'nieodda' && setShow(false)}}>
+      <div className="Chat"  onClick={(e) => {e.target.id === 'nieodda'  && setShow(false)}}>
         <div className='reavel'>
           <button>ODKRYJ</button>
         </div>

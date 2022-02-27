@@ -1,4 +1,5 @@
 import { React, useState, useContext, useEffect } from 'react';
+import { BrowserRouter as Router,Route,Routes,Navigate} from "react-router-dom";
 import { UserContext } from '../services/UserContext';
 import TopBar from './TopBar';
 import userLogo from './loginIcon/user.svg';
@@ -11,7 +12,7 @@ import { authUserLogin, authUserLogout, authUserRegister } from '../services/api
 const Login = ({info}) => {
   
   const { user, setUser } = useContext(UserContext);
-
+  const [ style, setStyle ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ confirmPassword, setConfirmPassword ] = useState('');
@@ -44,13 +45,6 @@ const Login = ({info}) => {
       return false; 
     }
   }
-  const logout = () => {
-    authUserLogout()
-      .then(user => setUser(user))
-      .catch(err => setLoginInfo(err))
-    console.log('logout');
-  }
-
   const login = () => {
     authUserLogin(email, password)
       .then(user => setUser(user))
@@ -60,6 +54,11 @@ const Login = ({info}) => {
     //   password : password
     // })
     console.log('login');
+  }
+
+  const loginError = ()=>{
+    setTimeout(function(){setStyle('error')},100)
+    setTimeout(function(){setStyle('')},1300)
   }
 
   const register = () => {
@@ -83,11 +82,11 @@ const Login = ({info}) => {
       {/* <ArrayList array={loginInfo}></ArrayList> */}
       <h1>Logowanie</h1>
       <div className='inputLogin'>
-        <div className='loginInput'>
+        <div className={`loginInput ${style}`}>
           <input type="text" placeholder='Login' onChange={(e) => setEmail(e.target.value)}></input>
           <img src={userLogo} alt="" />
         </div>
-        <div className='passwordInput'>
+        <div className={`passwordInput ${style}`}>
           <input type="password" placeholder='Hasło' onChange={(e) => setPassword(e.target.value)}></input>
           <img src={passwordLogo} alt="" />
         </div>
@@ -104,12 +103,12 @@ const Login = ({info}) => {
       {/* <ArrayList array={loginInfo}></ArrayList> */}
       <button className="option" onClick={() => setFormType('login') }> <img src={arrowLogo} alt="" /> </button>
       <h1 className='hh1'>Rejestracja</h1>
-      <div className='inputLogin'>
+      <div className='inputLogin register'>
         <div className='loginInput'>
           <input type="text" placeholder='Login' onChange={(e) => setEmail(e.target.value)}></input>
           <img src={userLogo} alt="" />
         </div>
-        <div className='loginInput'>
+        <div className='loginInput fb'>
           <input type="text" placeholder='Facebook/Telefon' onChange={(e) => setSocialContact(e.target.value)}></input>
         </div>
         <div className='passwordInput'>
@@ -131,7 +130,7 @@ const Login = ({info}) => {
     </div> ):
     <div>
       <TopBar/>
-      <button onClick={() => logout()}>Wyloguj</button>
+      <Navigate to='/chat' />
     </div>
 }
   </div>;

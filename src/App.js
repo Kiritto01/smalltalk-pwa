@@ -2,7 +2,7 @@ import {React, useState, useMemo} from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Routes} from "react-router-dom";
+  Routes,Navigate} from "react-router-dom";
 import { UserContext } from "./services/UserContext";
 import './App.scss';
 import { InfoContext } from './services/InfoContext';
@@ -41,8 +41,9 @@ function App() {
           <div className='wrapper'>
             <div className='main'>
               <Routes>
-                <Route path="/" elements={user ? <Profile/>: <Login info={info}/>}/>
-                <Route path="/chat" element={user ? (user.room_id ? <Chat/>: <Chat/>) : <Login info="Musisz się najpierw zalogować!"/>}/>
+                <Route path="/" element={user ? <Match/>: <Login/>}/>
+                <Route path="/chat" element={user ? (user.room_id ? <Chat/>: <Match/>) : <Login info="Musisz się najpierw zalogować!"/>}/>
+                <Route path="/chat1" element={user ? <Chat/>:<Login info="Musisz się najpierw zalogować!"/>}/>
                 <Route path="/profile" element={user ? <Profile/> : <Login info="Musisz się najpierw zalogować!"/>}/>
                 <Route path="/circles" element={user ? <Circles/> : <Login info="Musisz się najpierw zalogować!"/>}/>
                 <Route path="/friends" element={user ? <Friends/> : <Login info="Musisz się najpierw zalogować!"/>}/>
