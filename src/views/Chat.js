@@ -114,6 +114,7 @@ const Chat = () => {
 
 
   return (
+    <div onClick={(e) => {e.target.id === 'nieodda'  && setShow3(false)}}>
     <div onClick={(e) => {e.target.id === 'ree'  && setShow3(true)}}>
     <div onClick={(e) => {e.target.id === 'odda'  && setShow1(false)}}>
       <div className="Chat"  onClick={(e) => {e.target.id === 'nieodda'  && setShow(false)}}>
@@ -146,6 +147,7 @@ const Chat = () => {
         {show && <PopUp show={show} setShow={setShow} head={"Czy na pewno chcesz porzucić tę konwersację?"} clas={'chatPopUp contentt'} imagine={X2Logo} imagine2={checkLogo}/>}
         {show1 && <PopUp show={show1} setShow={setShow1} head2={"Druga osoba chcę cię poznać"} clas={'chatBttns'}/>}
         {show3 && <PopUp show3={show3} setShow3={setShow3} avatar={userLogo} head1={"Szymon"} imagine3={fbLogo} imagine4={instLogo} instaInfo={"Szymon Kowal"} fbInfo={"Szymon Kowal"} clas={'profile contentt'}/>}
+      </div>
       </div>
       </div>
       </div>)

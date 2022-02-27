@@ -103,8 +103,8 @@ const Login = ({info}) => {
       {/* <ArrayList array={loginInfo}></ArrayList> */}
       <button className="option" onClick={() => setFormType('login') }> <img src={arrowLogo} alt="" /> </button>
       <h1 className='hh1'>Rejestracja</h1>
-      <div className='inputLogin register'>
-        <div className='loginInput'>
+      <div className={`inputLogin register`}>
+        <div className={`loginInput ${style}`}>
           <input type="text" placeholder='Login' onChange={(e) => setEmail(e.target.value)}></input>
           <img src={userLogo} alt="" />
         </div>
@@ -120,7 +120,7 @@ const Login = ({info}) => {
           <img src={passwordLogo} alt="" />
         </div>
         <div className='bttn'>
-          <button onClick={() => register()}>Utwórz ➜</button>
+          <button onClick={() => loginError()}>Utwórz ➜</button>
         </div>
       </div>
       <div className="footer">
